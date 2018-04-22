@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e # Exit on any failure
+
+cp .bash_profile      $HOME/.bash_profile
+cp .gitconfig         $HOME/.gitconfig
+cp .gitignore_global  $HOME/.gitignore_global
+
+curl --silent http://levien.com/type/myfonts/Inconsolata.otf -o $HOME/Library/Fonts/Inconsolata.otf
+
+echo "Dotfiles in $USER's home directory have been replaced"
+echo "Reload shell for changes to take effect"
+echo "Please set your git user name and email again."
