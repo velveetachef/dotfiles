@@ -1,7 +1,6 @@
 # Any files matching the search terms in this file will be ignored by git
 
-# .DS_Store holds information about the current folder for OSX
-# such as icon placement
+# .DS_Store holds information about the current folder for OSX, such as icon placement
 .DS_Store
 
 # Backup files created by the vim text editor
@@ -16,11 +15,8 @@
 # .Trashes holds disk specific trash folders
 .Trashes
 
-# Node modules
 node_modules
 
-# Never check keys into Git
-keys.js*
-
-# Istanbul test coverage reports
+# test reports
 coverage
+.nyc_output

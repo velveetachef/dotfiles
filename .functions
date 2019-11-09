@@ -1,0 +1,25 @@
+# determines if the git branch you are on is clean or dirty
+git_prompt () {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    return 0
+  fi
+  # Grab working branch name
+  git_branch=$(Git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+  # Clean or dirty branch
+  if git diff --quiet 2>/dev/null >&2; then
+    git_color="${c_git_clean}"
+  else
+    git_color=${c_git_dirty}
+  fi
+  echo " [$git_color$git_branch${c_reset}]"
+}
+
+# commit and push current branch
+function gpush() {
+  git commit .; git push origin $(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+}
+
+# commit and pull current branch
+function gpull() {
+  git commit .; git pull origin $(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+}
