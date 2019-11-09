@@ -19,7 +19,7 @@ brew install awscli
 brew install python
 brew install redis
 brew install tree
-brew intsall jq
+brew install jq
 
 brew tap mongodb/brew
 brew install mongodb-community
