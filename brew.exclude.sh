@@ -13,13 +13,14 @@ fi
 brew update
 brew upgrade
 
-# Python 3
+brew install zsh
 brew install git
 brew install awscli
 brew install python
 brew install redis
 brew install tree
 brew install jq
+brew cask install graphql-playground
 
 brew tap mongodb/brew
 brew install mongodb-community

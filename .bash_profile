@@ -1,9 +1,9 @@
 echo "Loading ~/.bash_profile"
 echo "Logged in as $USER at $(hostname)"
 
-source .exports
-source .functions
-source .aliases
+source ~/.exports
+source ~/.functions
+source ~/.aliases
 
 # iterm2 tab names and colors
 [ -s "${HOME}/.iterm2_helpers.sh" ] && . "${HOME}/.iterm2_helpers.sh"

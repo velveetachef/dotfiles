@@ -1,30 +1,27 @@
 // Improve the default prompt with hostname, process type, and version
-var prompt = function () {
-    var serverstatus = db.serverStatus();
-    var host = serverstatus.host.split('.')[0];
-    var process = serverstatus.process;
-    var version = db.serverBuildInfo().version;
-    var repl_set = db._adminCommand({ "replSetGetStatus": 1 }).ok !== 0;
-    var rs_state = '';
+const prompt = function prompt() {
+    const serverstatus = db.serverStatus();
+    const host = serverstatus.host.split('.')[0];
+    const serverProcess = serverstatus.serverProcess;
+    const version = db.serverBuildInfo().version;
+    const replSet = db._adminCommand({ "replSetGetStatus": 1 }).ok !== 0;
+    let rsState = '';
 
-    if (repl_set) {
-        var status = rs.status();
-        var members = status.members;
-        var rs_name = status.set;
+    if (replSet) {
+        const { members, set: rsName } = rs.status();
 
-        for (var i = 0; i < members.length; i++) {
+        members.forEach((i, index) => {
             if (members[i].self === true) {
-                rs_state = '[' + members[i].stateStr + ':' + rs_name + ']';
+                rsState = '[' + members[i].stateStr + ':' + rsName + ']';
             }
-        }
+        });
     }
 
-    // not working
-    // var state = isMongos() ? '[mongos]' : rs_state;
+    // const state = isMongos() ? '[mongos]' : rsState;
 
-    var state = rs_state;
+    const state = rsState;
 
-    return host + '(' + process + '-' + version + ')' + state + ' ' + db + '> ';
+    return host + '(' + serverProcess + '-' + version + ')' + state + ' ' + db + '> ';
 };
 
 // default to pretty print
