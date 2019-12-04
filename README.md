@@ -102,27 +102,20 @@ ssh-add -K ~/.ssh/id_rsa
 
 Add public ssh key to github/gitlab
 
----
-
-### dotfiles
-clone https://github.com/velveetachef/dotfiles
-symlink all files to home directory
-```bash
-Automate this step
-```
-
----
-
 Create mongodb data directory and ensure correct permissions
 ```bash
 sudo mkdir -p /data/db
 sudo chown -R `id -un` /data/db
 ```
 
-### git
+---
+
+### dotfiles
+clone `https://github.com/velveetachef/dotfiles`
+
+symlink all files to home directory
 ```bash
-git config --global user.name username
-git config --global user.email email@gmail.com
+Automate this step
 ```
 
 ---
