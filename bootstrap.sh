@@ -29,7 +29,7 @@ link () {
         ln -sv "$PWD/.gitconfig" "$HOME"
         ln -sv "$PWD/.gitignore_global" "$HOME"
         ln -sv "$PWD/.mongorc.js" "$HOME"
-        ln -sv "$PWD/.zshrc" "$HOME"
+        ln -sv "$PWD/my_custom_zsh" "$HOME/.oh-my-zsh/custom"
 
 		echo "Symlinking complete"
 	else
