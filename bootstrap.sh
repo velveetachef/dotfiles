@@ -7,9 +7,6 @@ install_brew () {
 }
 
 install_tools() {
-    echo "Installing ohMyZsh"
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
     echo "Enabling iterm2 shell integration"
     curl -L https://iterm2.com/shell_integration/zsh \
     -o ~/.iterm2_shell_integration.zsh

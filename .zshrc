@@ -81,3 +81,6 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# package manager for python
+export PATH="$HOME/.poetry/bin:$PATH"
