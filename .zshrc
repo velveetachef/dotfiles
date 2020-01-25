@@ -2,14 +2,15 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jeremysabat/.oh-my-zsh"
+# export ZSH="/Users/jeremysabat/.oh-my-zsh" # home
+export ZSH="/Users/jsabat/.oh-my-zsh" # work
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git nvm)
+plugins=(nvm)
 
 # # brew autocompletion (must proceed sourcing oh-my-zsh)
 # if type brew &>/dev/null; then
@@ -32,43 +33,6 @@ fi
 # For a full list of active aliases, run `alias`
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
-
-# python
-alias python='/usr/local/bin/python3'
-
-# start and stop postgres
-alias startpg='docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d --restart=always --volumes-from postgres_vol postgres'
-alias stoppg='docker rm -f postgres'
-
-#-------
-# CBT
-#-------
-export NODE_ENV=development
-export LOCAL_ENV=true
-export NODE_LOGGER_CONSOLE=true
-export NODE_LOGGER_CONSOLE_LEVEL=debug
-export SKIP_BOT_MESSAGES=true
-
-# mongo env and node server shortcuts
-alias qamongo="mongo --host mongo.database.qa.us-east-1.nuggets.local --eval 'rs.slaveOk()' --shell"
-alias pmongo="mongo --host mongo.database.prod.us-east-1.nuggets.local --eval 'rs.slaveOk()' --shell"
-alias nodetest='NODE_ENV=test npm test'
-alias startqa='NODE_ENV=qa node app.js'
-alias startlxqa='NODE_ENV=cbtn-lx-qa ASSUME_ROLE=true node app.js'
-alias startprod='NODE_ENV=prod node app.js'
-
-# generate token shortcuts
-alias qatoken='cbt -e qa auth get_token'
-alias prodtoken='cbt -e prod auth get_token'
-alias qatokenid='cbt -e qa auth get_token_for_user --user_id'
-alias prodtokenid='cbt -e prod auth get_token_for_user --user_id'
-
-# set NPM Registry
-alias npm-default='npm config set registry https://registry.npmjs.org && yarn config set registry https://registry.npmjs.org'
-alias npm-cbt='npm config set registry http://npm.aws.cbtnuggets.com  && yarn config set registry http://npm.aws.cbtnuggets.com'
-
-
-
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
