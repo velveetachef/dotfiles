@@ -65,6 +65,7 @@ clone `https://github.com/velveetachef/dotfiles`
 
 Run bootstrap script
 ```bash
+ohmyzsh.sh
 bootstrap.sh
 ```
 

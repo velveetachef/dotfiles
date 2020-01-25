@@ -1,5 +1,5 @@
 // Improve the default prompt with hostname, process type, and version
-const prompt = function prompt() {
+function prompt() {
     const serverstatus = db.serverStatus();
     const host = serverstatus.host.split('.')[0];
     const serverProcess = serverstatus.serverProcess;
@@ -17,12 +17,8 @@ const prompt = function prompt() {
         });
     }
 
-    // const state = isMongos() ? '[mongos]' : rsState;
-
-    const state = rsState;
-
-    return host + '(' + serverProcess + '-' + version + ')' + state + ' ' + db + '> ';
-};
+    return `${host}[${serverProcess}-${version}]${rsState} ${db}> `
+}
 
 // default to pretty print
 DBQuery.prototype._prettyShell = true;

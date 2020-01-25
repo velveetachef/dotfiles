@@ -67,9 +67,6 @@ alias prodtokenid='cbt -e prod auth get_token_for_user --user_id'
 alias npm-default='npm config set registry https://registry.npmjs.org && yarn config set registry https://registry.npmjs.org'
 alias npm-cbt='npm config set registry http://npm.aws.cbtnuggets.com  && yarn config set registry http://npm.aws.cbtnuggets.com'
 
-
-
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
 
@@ -117,3 +114,6 @@ alias npm-cbt='npm config set registry http://npm.aws.cbtnuggets.com  && yarn co
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# package manager for python
+export PATH="$HOME/.poetry/bin:$PATH"
