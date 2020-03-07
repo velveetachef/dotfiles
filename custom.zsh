@@ -97,3 +97,8 @@ function startdynamo() {
   # must have java
   java -Djava.library.path=./DynamoDBLocal_lib/ -jar DynamoDBLocal.jar
 }
+
+#--------------------------------------
+# Start Mongo Local
+#--------------------------------------
+alias mongodlocal='mongod --dbpath /usr/local/var/mongodb'
