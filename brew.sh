@@ -19,6 +19,7 @@ brew install python
 brew install redis
 brew install tree
 brew install jq
+brew install wget
 brew cask install graphql-playground
 
 brew tap mongodb/brew

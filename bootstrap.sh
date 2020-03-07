@@ -17,16 +17,31 @@ install_tools() {
     echo "Install tools complete"
 }
 
+download_dynamo_local() {
+    echo "install dynamo local"
+    echo "Proceed? (y/n)"
+	read resp
+
+	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+        wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz -P ~/Downloads
+        mkdir ~/.dynamolocal
+        tar -xvzf ~/Downloads/dynamodb_local_latest.tar.gz -C ~/.dynamolocal
+		echo "dynamo local install complete"
+	else
+		echo "dynamo local install skipped by user"
+	fi
+}
+
 link () {
 	echo "Symlink files to the home directory"
     echo "Proceed? (y/n)"
 	read resp
 
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-        ln -sv "$PWD/.gitconfig" "$HOME"
-        ln -sv "$PWD/.gitignore_global" "$HOME"
-        ln -sv "$PWD/.mongorc.js" "$HOME"
-        ln -sv "$PWD/custom.zsh" "$HOME/.oh-my-zsh/custom"
+        ln -sv "~/dotfiles/.gitconfig" "$HOME"
+        ln -sv "~/dotfiles/.gitignore_global" "$HOME"
+        ln -sv "~/dotfiles/.mongorc.js" "$HOME"
+        ln -sv "~/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
 
 		echo "Symlinking complete"
 	else
@@ -37,4 +52,5 @@ link () {
 
 install_brew
 install_tools
+download_dynamo_local
 link

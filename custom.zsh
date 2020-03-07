@@ -34,7 +34,7 @@ alias gds='git diff --staged'
 alias gfg='git ls-files | grep'
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias gm='git merge'
-alias gp='git push'
+# alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpoat='git push origin --all && git push origin --tags'
 alias grhh='git reset --hard'
@@ -44,7 +44,7 @@ alias gst='git status'
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
 
-function ggl() {
+function gpull() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git pull origin "${*}"
   else
@@ -53,7 +53,7 @@ function ggl() {
   fi
 }
 
-function ggp() {
+function gpush() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git push origin "${*}"
   else
@@ -88,3 +88,12 @@ alias prodtokenid='cbt -e prod auth get_token_for_user --user_id'
 # set NPM Registry
 alias npm-default='npm config set registry https://registry.npmjs.org && yarn config set registry https://registry.npmjs.org'
 alias npm-cbt='npm config set registry http://npm.aws.cbtnuggets.com  && yarn config set registry http://npm.aws.cbtnuggets.com'
+
+#--------------------------------------
+# Start Dynamo Local
+#--------------------------------------
+function startdynamo() {
+  cd ~/.dynamolocal
+  # must have java
+  java -Djava.library.path=./DynamoDBLocal_lib/ -jar DynamoDBLocal.jar
+}
