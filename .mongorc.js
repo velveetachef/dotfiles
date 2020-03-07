@@ -1,16 +1,14 @@
 function prompt() {
-    const serverStatus = db.serverStatus();
-    const host = serverStatus.host.split('.')[0];
-    const { version, process: serverProcess } = serverStatus;
+    const { host, version, process: serverProcess } = db.serverStatus();
     const replSet = db._adminCommand({ "replSetGetStatus": 1 }).ok !== 0;
     let rsState = '';
 
     if (replSet) {
         const { members, set: rsName } = rs.status();
 
-        members.forEach((i) => {
-            if (members[i].self === true) {
-                rsState = '[' + members[i].stateStr + ':' + rsName + ']';
+        members.forEach((member) => {
+            if (member.self === true) {
+                rsState = `[${member.stateStr}:${rsName}]`;
             }
         });
     }
