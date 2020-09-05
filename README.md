@@ -8,6 +8,7 @@ Files for dev environment upkeep and bootstrapping a new environment
 show hidden files
 ```bash
 defaults write com.apple.Finder AppleShowAllFiles YES
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 killall Finder
 ```
 
