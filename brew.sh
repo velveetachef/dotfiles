@@ -21,9 +21,10 @@ brew install tree
 brew install jq
 brew install wget
 brew cask install graphql-playground
-
 brew tap mongodb/brew
 brew install mongodb-community
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 
 # Remove outdated versions from the cellar
 brew cleanup
