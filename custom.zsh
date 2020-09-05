@@ -10,6 +10,12 @@ alias startpg='docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root
 alias stoppg='docker rm -f postgres'
 
 #--------------------------------------
+# enable and disable package-lock
+#--------------------------------------
+alias plockon='npm config set package-lock true'
+alias plockoff='npm config set package-lock false'
+
+#--------------------------------------
 # git
 #--------------------------------------
 alias g='git'
@@ -77,6 +83,7 @@ alias pmongo="mongo --host mongo.database.prod.us-east-1.nuggets.local --eval 'r
 alias nodetest='NODE_ENV=test npm test'
 alias startqa='NODE_ENV=qa node app.js'
 alias startlxqa='NODE_ENV=cbtn-lx-qa ASSUME_ROLE=true node app.js'
+alias startlxqats='ASSUME_ROLE=true NODE_ENV=cbtn-lx-qa LOCAL_ENV=true NODE_LOGGER_CONSOLE=true NODE_LOGGER_CONSOLE_LEVEL=debug NODE_PATH=/app/dist/src node /dist/src/app.js'
 alias startprod='NODE_ENV=prod node app.js'
 
 # generate token shortcuts

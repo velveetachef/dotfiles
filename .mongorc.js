@@ -1,5 +1,6 @@
 function prompt() {
-    const { host, version, process: serverProcess } = db.serverStatus();
+    // const { host, version, process: serverProcess } = db.serverStatus();
+    const { me } = db.isMaster();
     const replSet = db._adminCommand({ "replSetGetStatus": 1 }).ok !== 0;
     let rsState = '';
 
@@ -13,7 +14,8 @@ function prompt() {
         });
     }
 
-    return `${host}[${serverProcess}-${version}]${rsState} ${db}> `
+    // return `${host}[${serverProcess}-${version}]${rsState} ${db}}> `
+    return `${me} ${db}> `
 }
 
 // default to pretty print
