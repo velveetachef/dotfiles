@@ -15,15 +15,11 @@ killall Finder
 ---
 
 ### Apps
-- dropbox
-- 1password6
+- 1password
 - vscode
 - iterm2
-- evernote
-- postman
 - spectacle
 - Slack
-- Sonos
 - spotify
 - Notion
 - TablePlus
@@ -62,7 +58,7 @@ Add public ssh key to github/gitlab
 ---
 
 ### dotfiles
-clone `https://github.com/velveetachef/dotfiles`
+clone `https://github.com/velveetachef/dotfiles` to home directory
 
 Run bootstrap script
 ```bash

@@ -38,10 +38,10 @@ link () {
 	read resp
 
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-        ln -sv "~/dotfiles/.gitconfig" "$HOME"
-        ln -sv "~/dotfiles/.gitignore_global" "$HOME"
-        ln -sv "~/dotfiles/.mongorc.js" "$HOME"
-        ln -sv "~/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
+        ln -sv "$HOME/dotfiles/.gitconfig" "$HOME"
+        ln -sv "$HOME/dotfiles/.gitignore_global" "$HOME"
+        ln -sv "$HOME/dotfiles/.mongorc.js" "$HOME"
+        ln -sv "$HOME/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
 
 		echo "Symlinking complete"
 	else

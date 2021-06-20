@@ -4,7 +4,7 @@
 which brew 1>&/dev/null
 if [ ! "$?" -eq 0 ] ; then
     echo "Homebrew not installed. Attempting to install Homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [ ! "$?" -eq 0 ] ; then
         echo "Something went wrong. Exiting..." && exit 1
     fi
@@ -20,11 +20,11 @@ brew install redis
 brew install tree
 brew install jq
 brew install wget
-brew cask install graphql-playground
+brew install graphql-playground
 brew tap mongodb/brew
 brew install mongodb-community
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install font-fira-code
 
 # Remove outdated versions from the cellar
 brew cleanup
