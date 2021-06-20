@@ -16,6 +16,7 @@
 .Trashes
 
 node_modules
+.env
 
 # test reports
 coverage
