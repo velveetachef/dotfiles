@@ -18,7 +18,6 @@ killall Finder
 - 1password
 - vscode
 - iterm2
-- spectacle
 - Slack
 - spotify
 - Notion

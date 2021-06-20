@@ -25,6 +25,7 @@ brew tap mongodb/brew
 brew install mongodb-community
 brew tap homebrew/cask-fonts
 brew install font-fira-code
+brew install --cask rectangle
 
 # Remove outdated versions from the cellar
 brew cleanup
