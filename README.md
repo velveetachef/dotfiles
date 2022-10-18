@@ -56,6 +56,15 @@ Add public ssh key to github/gitlab
 
 ---
 
+### Install Homebrew and Xcode Command Line Tools and git
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+
+```
+
+---
+
 ### dotfiles
 clone `https://github.com/velveetachef/dotfiles` to home directory
 
