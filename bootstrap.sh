@@ -12,24 +12,9 @@ install_tools() {
     -o ~/.iterm2_shell_integration.zsh
 
     echo "Installing NVM"
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
     echo "Install tools complete"
-}
-
-download_dynamo_local() {
-    echo "install dynamo local"
-    echo "Proceed? (y/n)"
-	read resp
-
-	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-        wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz -P ~/Downloads
-        mkdir ~/.dynamolocal
-        tar -xvzf ~/Downloads/dynamodb_local_latest.tar.gz -C ~/.dynamolocal
-		echo "dynamo local install complete"
-	else
-		echo "dynamo local install skipped by user"
-	fi
 }
 
 link () {
@@ -52,5 +37,4 @@ link () {
 
 install_brew
 install_tools
-download_dynamo_local
 link

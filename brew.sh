@@ -15,19 +15,19 @@ brew upgrade
 
 brew install git
 brew install awscli
-brew install python
-brew install redis
+# brew install python
+# brew install redis
 brew install tree
 brew install jq
 brew install wget
-brew install graphql-playground
-brew tap mongodb/brew
-brew install mongodb-community
-brew tap homebrew/cask-fonts
-brew install font-fira-code
+# brew install graphql-playground
+# brew tap mongodb/brew
+# brew install mongodb-community
+# brew tap homebrew/cask-fonts
+# brew install font-fira-code
 brew install --cask rectangle
 
 # Remove outdated versions from the cellar
 brew cleanup
 
-brew services start redis
+# brew services start redis
