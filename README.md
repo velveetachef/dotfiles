@@ -16,7 +16,7 @@ killall Finder
 
 ### Apps
 - 1password
-- vscode
+- vscode (enable settings sync)
 - iterm2
 - Slack
 - spotify
@@ -73,11 +73,6 @@ Run bootstrap script
 ohmyzsh.sh
 bootstrap.sh
 ```
-
----
-
-### VSCode
-Install package `Settings Sync`
 
 ---
 
