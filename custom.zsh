@@ -6,8 +6,8 @@
 #--------------------------------------
 # start and stop postgres
 #--------------------------------------
-alias startpg='docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d --restart=always --volumes-from postgres_vol postgres'
-alias stoppg='docker rm -f postgres'
+# alias startpg='docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d --restart=always --volumes-from postgres_vol postgres'
+# alias stoppg='docker rm -f postgres'
 
 #--------------------------------------
 # enable and disable package-lock
@@ -67,15 +67,6 @@ function gpush() {
     git push origin "${b:=$1}"
   fi
 }
-
-# #--------------------------------------
-# # Start Dynamo Local
-# #--------------------------------------
-# function startdynamo() {
-#   cd ~/.dynamolocal
-#   # must have java
-#   java -Djava.library.path=./DynamoDBLocal_lib/ -jar DynamoDBLocal.jar
-# }
 
 #--------------------------------------
 # Start Mongo Local
