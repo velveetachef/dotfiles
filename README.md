@@ -22,6 +22,7 @@ killall Finder
 - spotify
 - Notion
 - Docker
+- stay
 
 ---
 
@@ -67,6 +68,7 @@ jq \
 wget \
 font-fira-code \
 --cask rectangle \
+kubectl
 
 # Remove outdated versions from the cellar
 brew cleanup
@@ -109,3 +111,8 @@ ln -sv "$HOME/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
 ```
 
 ---
+
+### Configure kubectl
+https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
+
+

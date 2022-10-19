@@ -16,6 +16,12 @@ alias plockon='npm config set package-lock true'
 alias plockoff='npm config set package-lock false'
 
 #--------------------------------------
+# zsh
+#--------------------------------------
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+#--------------------------------------
 # git
 #--------------------------------------
 alias g='git'
@@ -66,6 +72,11 @@ function gpush() {
     [[ "$#" == 0 ]] && local b="$(git_current_branch)"
     git push origin "${b:=$1}"
   fi
+}
+
+function setLocalConfig() {
+  g config user.name "Jeremy Sabat"
+  g config user.email jsabat@esri.com
 }
 
 #--------------------------------------

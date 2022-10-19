@@ -18,7 +18,9 @@
 [alias]
 
 [user]
-	name = velveetachef
+	# name = velveetachef
+	name = Jeremy Sabat
 	email = jeremysabat@gmail.com
+	# useConfigOnly = true
 [rerere]
 	enabled = true
