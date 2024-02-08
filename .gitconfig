@@ -20,5 +20,6 @@
 [user]
 	name = velveetachef
 	email = jeremysabat@gmail.com
+	# useConfigOnly = true
 [rerere]
 	enabled = true
