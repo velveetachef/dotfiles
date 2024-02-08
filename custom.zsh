@@ -1,7 +1,7 @@
 #--------------------------------------
 # python
 #--------------------------------------
-# alias python='/usr/local/bin/python3'
+alias python='/usr/local/bin/python3'
 
 #--------------------------------------
 # start and stop postgres
@@ -20,6 +20,11 @@ alias plockoff='npm config set package-lock false'
 #--------------------------------------
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+
+#--------------------------------------
+# npm
+#--------------------------------------
+alias listglobal='npm list -g --depth 0'
 
 #--------------------------------------
 # git
@@ -60,7 +65,7 @@ function gpull() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git pull origin "${*}"
   else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+    [[ "$#" -eq 0 ]] && local b="$(git_current_branch)"
     git pull origin "${b:=$1}"
   fi
 }
@@ -69,7 +74,7 @@ function gpush() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
     git push origin "${*}"
   else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+    [[ "$#" -eq 0 ]] && local b="$(git_current_branch)"
     git push origin "${b:=$1}"
   fi
 }

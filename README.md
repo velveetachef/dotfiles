@@ -62,16 +62,26 @@ Add public ssh key to github/gitlab
 brew tap homebrew/cask-fonts
 brew install git \
 awscli \
+--cask aws-vault \
 # redis \
 tree \
 jq \
 wget \
 font-fira-code \
 --cask rectangle \
-kubectl
+kubectl \
+k6 \
+--cask pgadmin4
 
 # Remove outdated versions from the cellar
 brew cleanup
+```
+
+---
+
+### Install global npm packages
+```bash
+npm i -g npm-check-updates
 ```
 
 ---
