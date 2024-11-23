@@ -16,13 +16,14 @@ killall Finder
 
 ### Apps
 - 1password
+- Notion
+- Chrome (turn on sync)
 - vscode (enable settings sync)
 - iterm2
-- Slack
+- Slack/Teams
 - spotify
-- Notion
 - Docker
-- stay
+- stay (store window locations)
 
 ---
 
@@ -48,7 +49,7 @@ Host *
 Add ssh key to ssh-agent
 ```bash
 eval "$(ssh-agent -s)"
-ssh-add -K ~/.ssh/id_rsa
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ```
 
 Add public ssh key to github/gitlab
@@ -60,21 +61,40 @@ Add public ssh key to github/gitlab
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew tap homebrew/cask-fonts
+brew install --cask aws-vault
+brew install --cask rectangle
+brew install --cask pgadmin4
+brew install --cask postman
 brew install git \
 awscli \
---cask aws-vault \
-# redis \
 tree \
 jq \
 wget \
 font-fira-code \
---cask rectangle \
 kubectl \
-k6 \
---cask pgadmin4
 
 # Remove outdated versions from the cellar
 brew cleanup
+```
+
+---
+
+### Install OhMyZsh
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+---
+
+### dotfiles
+clone [dotfiles](https://github.com/velveetachef/dotfiles) to home directory
+
+Symlink files
+```bash
+ln -sv "$HOME/dotfiles/.gitconfig" "$HOME"
+ln -sv "$HOME/dotfiles/.gitignore_global" "$HOME"
+ln -sv "$HOME/dotfiles/.mongorc.js" "$HOME"
+ln -sv "$HOME/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
 ```
 
 ---
@@ -86,14 +106,10 @@ npm i -g npm-check-updates
 
 ---
 
-### dotfiles
-clone [dotfiles](https://github.com/velveetachef/dotfiles) to home directory
-
----
-
-### Install OhMyZsh
+### Install volta (node/npm management)
 ```bash
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl https://get.volta.sh | bash
+volta install node
 ```
 
 ---
@@ -105,24 +121,11 @@ curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
 
 ---
 
-### Install nvm
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-```
-
----
-
-### Symlink Files
-```bash
-ln -sv "$HOME/dotfiles/.gitconfig" "$HOME"
-ln -sv "$HOME/dotfiles/.gitignore_global" "$HOME"
-ln -sv "$HOME/dotfiles/.mongorc.js" "$HOME"
-ln -sv "$HOME/dotfiles/custom.zsh" "$HOME/.oh-my-zsh/custom"
-```
-
----
-
 ### Configure kubectl
 https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
 
+---
+
+### Configure aws-cli
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where
 
