@@ -81,7 +81,7 @@ function gpull() {
 
 function gpush() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-  git push origin "${*}"
+    git push origin "${*}"
   else
     [[ "$#" -eq 0 ]] && local b="$(git_current_branch)"
     git push origin "${b:=$1}"
