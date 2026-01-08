@@ -18,8 +18,8 @@ alias plockoff='npm config set package-lock false'
 #--------------------------------------
 # zsh
 #--------------------------------------
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+alias zshconfig="cursor ~/.zshrc"
+alias ohmyzsh="cursor ~/.oh-my-zsh"
 
 #--------------------------------------
 # npm
@@ -344,6 +344,50 @@ function eks_get_token() {
   echo "Token for cluster $selected_cluster in region $selected_region has been copied to the clipboard."
 }
 
+#--------------------------------------
+# k8s eks get_token
+# ~ aws-vault exec prod-admin
+# ~ get-vscode-launch
+#--------------------------------------
+function get_vscode_launch() {
+  # Define the list of parameter names
+  parameter_names=(
+    "/hub-engagement/vscode-launch"
+    "/hub-telemetry/vscode-launch"
+    "/hub-discussions/vscode-launch"
+  )
+
+  # Prompt the user to select a parameter name
+  echo "Select the launch configuration:"
+  select parameter_name in "${parameter_names[@]}"; do
+    if [[ -n "$parameter_name" ]]; then
+      break
+    else
+      echo "Invalid selection. Please try again."
+    fi
+  done
+
+  # Fetch the parameter value from AWS Parameter Store
+  parameter_value=$(aws ssm get-parameter --name "$parameter_name" --with-decryption --query "Parameter.Value" --output text)
+
+  if [[ -n "$parameter_value" ]]; then
+  # Decode the Base64 string and decompress the gzip content
+    decoded_value=$(echo "$parameter_value" | base64 --decode | gzip -d)
+    # Copy the parameter value to the clipboard
+    if command -v pbcopy &> /dev/null; then
+      echo "$decoded_value" | pbcopy
+      echo "Parameter value copied to clipboard."
+    elif command -v xclip &> /dev/null; then
+      echo "$decoded_value" | xclip -selection clipboard
+      echo "Parameter value copied to clipboard."
+    else
+      echo "Clipboard utility not found. Please install pbcopy (macOS) or xclip (Linux)."
+    fi
+  else
+    echo "Parameter not found."
+  fi
+}
+
 # Tab completion setup for zsh
 if [ -n "$ZSH_VERSION" ]; then
   _eks_get_token() {
@@ -360,23 +404,3 @@ if [ -n "$ZSH_VERSION" ]; then
   }
   compctl -K _eks_switch eks_switch
 fi
-
-# # set kube context
-# alias k8s_use_dev1="kubectl config use-context arn:aws:eks:us-east-1:223221345407:cluster/hub-dev-eks-1"
-# alias k8s_use_dev2="kubectl config use-context arn:aws:eks:us-east-1:223221345407:cluster/hub-dev-eks-2"
-
-# alias k8s_use_qa1="kubectl config use-context arn:aws:eks:us-east-1:223221345407:cluster/hub-qa-eks-1"
-# alias k8s_use_qa2="kubectl config use-context arn:aws:eks:us-east-1:223221345407:cluster/hub-qa-eks-2"
-
-# alias k8s_use_prod1="kubectl config use-context arn:aws:eks:us-east-1:228462370019:cluster/hub-prod-eks-1"
-# alias k8s_use_prod2="kubectl config use-context arn:aws:eks:us-east-1:228462370019:cluster/hub-prod-eks-2"
-
-# # generate k8s token
-# alias k8s_token_dev1="aws eks get-token --cluster-name hub-dev-eks-1 --region us-east-1 --role-arn arn:aws:iam::223221345407:role/hub-dev-eks-1-admin | jq -r '.status.token' | pbcopy"
-# alias k8s_token_dev2="aws eks get-token --cluster-name hub-dev-eks-2 --region us-east-1 --role-arn arn:aws:iam::223221345407:role/hub-dev-eks-2-admin | jq -r '.status.token' | pbcopy"
-
-# alias k8s_token_qa1="aws eks get-token --cluster-name hub-qa-eks-1 --region us-east-1 --role-arn arn:aws:iam::223221345407:role/hub-qa-eks-1-admin | jq -r '.status.token' | pbcopy"
-# alias k8s_token_qa2="aws eks get-token --cluster-name hub-qa-eks-2 --region us-east-1 --role-arn arn:aws:iam::223221345407:role/hub-qa-eks-2-admin | jq -r '.status.token' | pbcopy"
-
-# alias k8s_token_prod1="aws eks get-token --cluster-name hub-prod-eks-1 --region us-east-1 --role-arn arn:aws:iam::228462370019:role/hub-prod-eks-1-admin | jq -r '.status.token' | pbcopy"
-# alias k8s_token_prod2="aws eks get-token --cluster-name hub-prod-eks-2 --region us-east-1 --role-arn arn:aws:iam::228462370019:role/hub-prod-eks-2-admin | jq -r '.status.token' | pbcopy"
