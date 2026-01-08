@@ -18,12 +18,13 @@ killall Finder
 - 1password
 - Notion
 - Chrome (turn on sync)
-- vscode (enable settings sync)
+- cursor (enable settings sync)
 - iterm2
 - Slack/Teams
 - spotify
 - Docker
 - stay (store window locations)
+- logi Options+ (for mouse/webcam)
 
 ---
 

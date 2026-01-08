@@ -22,4 +22,9 @@
 	email = jeremysabat@gmail.com
 	# useConfigOnly = true
 [rerere]
-	enabled = true
+	enabled = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
